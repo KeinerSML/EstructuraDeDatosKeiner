@@ -12,8 +12,57 @@ están muy lejos de su posición final.
 Resultado esperado: Mostrar el arreglo original y el arreglo final ordenado 
 después de aplicar todas las fases de reducción de saltos. */
 
+import java.util.Scanner;
+
 public class Ejercicio3 {
+
+    public static void MostrarArreglo(int[] arr){
+        for (int num : arr) {
+            System.out.println(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void ShellSort(int[] arr){
+        int n = arr.length;
+        for (int gap = n/2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                int temp = arr[i];
+                int j;
+                for (int j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+                    arr[j] = arr[j - gap];
+                }
+
+                arr[j] = temp;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese la cantidad de paquetes: ");
+        int n = scanner.nextInt();
+
+        int[] pesos = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Ingrese el peso del paquete " + (i + 1) + ": ");
+            pesos[i] = scanner.nextInt();
+        }
+
+        // Mostrar arreglo original
+        System.out.println("\nArreglo original:");
+        MostrarArreglo(pesos);
+
+        // Aplicar Shell Sort
+        ShellSort(pesos);
+
+        // Mostrar arreglo ordenado
+        System.out.println("\nArreglo ordenado:");
+        MostrarArreglo(pesos);
+
+        scanner.close();
     }
 }

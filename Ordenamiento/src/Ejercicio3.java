@@ -29,7 +29,7 @@ public class Ejercicio3 {
             for (int i = gap; i < n; i++) {
                 int temp = arr[i];
                 int j;
-                for (int j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                     arr[j] = arr[j - gap];
                 }
 

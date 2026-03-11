@@ -6,13 +6,10 @@ uno a uno en el estante en su posición correcta.
 Detalle del ejercicio: El usuario debe ingresar la cantidad de libros y luego el código ISBN 
 (número entero) de cada uno.
 Lógica de Inserción: A medida que el usuario ingresa un número, o una vez llenado el arreglo, 
-el algoritmo debe simular el proceso de "insertar" el elemento comparándolo con 
-los que ya están a su izquierda.
-Visualización Paso a Paso: En cada ciclo del ordenamiento, 
-el programa debe imprimir cómo va quedando el arreglo 
+el algoritmo debe simular el proceso de "insertar" el elemento comparándolo con los que ya están a su izquierda.
+Visualización Paso a Paso: En cada ciclo del ordenamiento, el programa debe imprimir cómo va quedando el arreglo 
 (ej: [10, 25, 5, 30] -> [5, 10, 25, 30]). 
-Esto permite al estudiante ver cómo los elementos se desplazan para abrir 
-espacio al nuevo valor. */
+Esto permite al estudiante ver cómo los elementos se desplazan para abrir espacio al nuevo valor. */
 
 import java.util.Scanner;
 
@@ -29,10 +26,6 @@ public class Ejercicio2 {
         for (int i = 0; i < n; i++) {
             System.out.println("Ingrese el id del libro " + (i + 1) + ": ");
             id[i] = scanner.nextInt();
-        }
-
-        for (int i = 1; i < n; i++) {
-
             int clave = id[i];
             int j = i - 1;
 
@@ -43,26 +36,15 @@ public class Ejercicio2 {
 
             id[j + 1] = clave;
 
-            // Mostrar arreglo en cada paso
-            System.out.print("Paso " + i + ": [");
-            for (int k = 0; k < n; k++) {
+            System.out.print("[");
+            for (int k = 0; k <= i; k++) {
                 System.out.print(id[k]);
-                if (k < n - 1) {
+                if (k < i) {
                     System.out.print(", ");
                 }
             }
             System.out.println("]");
         }
-
-        System.out.println("\nArreglo ordenado final:");
-        System.out.print("[");
-        for (int i = 0; i < n; i++) {
-            System.out.print(id[i]);
-            if (i < n - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
 
         scanner.close();
     }

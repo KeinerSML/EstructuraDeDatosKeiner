@@ -16,7 +16,7 @@ public class App {
         int opcion;
 
         do {
-            System.out.println("\n--- MENÚ ---");
+            System.out.println("\n========== MENÚ ==========");
             System.out.println("1. Agregar producto");
             System.out.println("2. Mostrar inventario");
             System.out.println("3. Mostrar productos por vencer (<5 días)");

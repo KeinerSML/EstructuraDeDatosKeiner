@@ -1,10 +1,19 @@
+/*2. Control de Calidad (Línea de Ensamblaje)
+Un brazo robótico en una fábrica de motores apila componentes siguiendo una secuencia precisa. Un sensor de visión artificial inspecciona cada pieza después de ser colocada.
+
+La Clase Pieza (Nodo): Debe contener nombrePieza (String), numeroSerie (String) y esDefectuosa (boolean).
+El Problema: Si el sensor detecta una pieza defectuosa, la línea de producción debe detenerse inmediatamente.
+Reto: Crea un método limpiarHastaDefecto() que extraiga (pop) todas las piezas de la pila hasta encontrar 
+la primera que tenga esDefectuosa = true. El método debe imprimir el nombre de todas 
+las piezas "buenas" que tuvieron que ser retiradas y descartadas antes de llegar a la pieza fallida. */
+
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         PilaContenedores pila = new PilaContenedores();
 
@@ -21,25 +30,25 @@ public class App {
             System.out.println("6. Salir");
 
             System.out.print("Seleccione una opción: ");
-            opcion = sc.nextInt();
-            sc.nextLine();
+            opcion = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcion) {
 
                 case 1:
 
                     System.out.print("Ingrese código: ");
-                    String codigo = sc.nextLine();
+                    String codigo = scanner.nextLine();
 
                     System.out.print("Ingrese empresa: ");
-                    String empresa = sc.nextLine();
+                    String empresa = scanner.nextLine();
 
                     System.out.print("Ingrese peso: ");
-                    double peso = sc.nextDouble();
-                    sc.nextLine();
+                    double peso = scanner.nextDouble();
+                    scanner.nextLine();
 
                     System.out.print("Ingrese tipo de carga: ");
-                    String tipo = sc.nextLine();
+                    String tipo = scanner.nextLine();
 
                     pila.push(codigo, empresa, peso, tipo);
 
@@ -66,7 +75,7 @@ public class App {
                 case 5:
 
                     System.out.print("Ingrese nombre de la empresa: ");
-                    String nombreEmpresa = sc.nextLine();
+                    String nombreEmpresa = scanner.nextLine();
 
                     int cantidad = pila.contarPorEmpresa(nombreEmpresa);
 
@@ -87,6 +96,6 @@ public class App {
 
         } while (opcion != 6);
 
-        sc.close();
+        scanner.close();
     }
 }
